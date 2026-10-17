@@ -1,0 +1,51 @@
+@startuml
+title Екологія та лісництво
+hide circle
+skinparam monochrome true
+
+class "Лісничий" as Actor <<Actor>>
+class "Ділянка" as Aggregate <<Aggregate>>
+class "Дерево" as Part <<Part>>
+
+Actor "1" --> "0..*" Aggregate : охороняти
+note on link
+  Bash: немає
+end note
+
+Actor "1" --> "0..*" Aggregate : підійти
+note on link
+  Bash: cd
+end note
+
+Actor "1" --> "0..*" Aggregate : розмітити
+note on link
+  Bash: mkdir
+end note
+
+Actor "1" --> "0..*" Aggregate : обстежити
+note on link
+  Bash: ls
+end note
+
+Actor "1" --> "0..*" Part : висадити
+note on link
+  Bash: touch
+end note
+
+Actor "1" --> "0..*" Part : оглянути
+note on link
+  Bash: cat
+end note
+
+Actor "1" --> "0..*" Part : пересадити
+note on link
+  Bash: mv
+end note
+
+Actor "1" --> "0..*" Part : затаврувати
+note on link
+  Bash: немає
+end note
+
+Aggregate "0..1" o-- "0..*" Part : містить
+@enduml
